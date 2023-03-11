@@ -2,22 +2,24 @@
     <h1 style="text-align: center; margin: 30px">Fibonacci Clock</h1>
 
     <div class="card-container">
-        <button class="card card-small" (click)="back()">
+        <button class="card card-small" (click)="fibonacciClockService.back()">
             <span>Back</span>
         </button>
 
-        <button class="card card-small" (click)="next()">
+        <button class="card card-small" (click)="fibonacciClockService.next()">
             <span>Next</span>
         </button>
     </div>
 
     <div style="padding: 30px; text-align: center">
-        <h2>Time: {{ selectedTime }}</h2>
-        <h2>Possible Cases: {{ fibonacciClockList[selectedTime]?.length }}</h2>
+        <h2>Time: {{ fibonacciClockService.selectedTime }}</h2>
+        <h2>
+            Possible Cases: {{ fibonacciClockService.fibonacciClockList[fibonacciClockService.selectedTime]?.length }}
+        </h2>
     </div>
 
     <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 16px">
-        <div *ngFor="let item of fibonacciClockList[selectedTime]">
+        <div *ngFor="let item of fibonacciClockService.fibonacciClockList[fibonacciClockService.selectedTime]">
             <app-fibonacci-clock [fibonacciArray]="item"></app-fibonacci-clock>
         </div>
     </div>
