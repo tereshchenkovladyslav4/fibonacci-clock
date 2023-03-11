@@ -24,8 +24,6 @@ export class FibonacciClockService {
         // Generate all possible combinations of the Fibonacci numbers
         const combinations = this.getCombinations([Color.RED, Color.GREEN, Color.BLUE, Color.WHITE], 5);
 
-        console.log('combinations', combinations);
-
         // Iterate over all combinations and check if they represent a valid time
         for (let combination of combinations) {
             let hourSum = 0;
@@ -53,8 +51,6 @@ export class FibonacciClockService {
                 }
             }
         }
-
-        console.log(this.fibonacciClockList);
     }
 
     // Helper function to generate all combinations of an array with a given length
