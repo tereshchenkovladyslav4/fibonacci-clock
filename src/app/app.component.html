@@ -1,5 +1,5 @@
 <div class="content" role="main">
-    <h1 style="text-align: center; margin: 30px">Fibonacci Clock</h1>
+    <h1 style="text-align: center; margin: 30px">{{ title }}</h1>
 
     <div class="card-container">
         <button class="card card-small" (click)="fibonacciClockService.back()">
@@ -14,7 +14,7 @@
     <div style="padding: 30px; text-align: center">
         <h2>Time: {{ fibonacciClockService.selectedTime }}</h2>
         <h2>
-            Possible Cases: {{ fibonacciClockService.fibonacciClockList[fibonacciClockService.selectedTime]?.length }}
+            Possible Cases: {{ fibonacciClockService.fibonacciClockList[fibonacciClockService.selectedTime].length }}
         </h2>
     </div>
 

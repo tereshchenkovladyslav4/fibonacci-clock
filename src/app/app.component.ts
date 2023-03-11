@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FibonacciClockService } from '@services';
+import { environment } from '@env/environment';
 
 @Component({
     selector: 'app-root',
@@ -7,5 +8,7 @@ import { FibonacciClockService } from '@services';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+    title = environment.title;
+
     constructor(public fibonacciClockService: FibonacciClockService) {}
 }
