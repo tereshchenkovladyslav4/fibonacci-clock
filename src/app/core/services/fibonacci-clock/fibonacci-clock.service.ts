@@ -28,20 +28,17 @@ export class FibonacciClockService {
         for (let combination of combinations) {
             let hourSum = 0;
             let minuteSum = 0;
-            let blueSum = 0;
             for (let i = 0; i < 5; i++) {
                 if (combination[i] === Color.RED || combination[i] === Color.BLUE) {
-                    // Red square
                     hourSum += fibonacci[i];
                 }
                 if (combination[i] === Color.GREEN || combination[i] === Color.BLUE) {
-                    // Green square
                     minuteSum += fibonacci[i];
                 }
             }
             // Check if the time is valid (hours < 12, minutes < 60)
             if (hourSum < 12 && minuteSum < 12) {
-                // Calculate the minutes and log the time
+                // Calculate the minutes
                 const minutes = minuteSum * 5;
                 const timeStr = `${hourSum.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
                 if (this.fibonacciClockList[timeStr]?.length) {
