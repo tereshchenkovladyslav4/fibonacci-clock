@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FibonacciClockComponent } from './fibonacci-clock.component';
+import { ColorPipe } from '@pipes';
 
 describe('FibonacciClockComponent', () => {
     let component: FibonacciClockComponent;
@@ -8,7 +9,7 @@ describe('FibonacciClockComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [FibonacciClockComponent],
+            declarations: [FibonacciClockComponent, ColorPipe],
         }).compileComponents();
 
         fixture = TestBed.createComponent(FibonacciClockComponent);

@@ -28,6 +28,7 @@
       "@enums": ["src/app/core/enums/index"],
       "@services": ["src/app/core/services/index"],
       "@components": ["src/app/shared/components/index"],
+      "@pipes": ["src/app/shared/pipes/index"],
     }
   },
   "angularCompilerOptions": {
