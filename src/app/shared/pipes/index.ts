@@ -1,1 +1,1 @@
-export * from './color.pipe';
+export * from './color/color.pipe';

@@ -5,7 +5,7 @@ import { Color } from '@enums';
     name: 'color',
 })
 export class ColorPipe implements PipeTransform {
-    transform(value: Color): string {
+    transform(value: Color, ...args: unknown[]): string {
         switch (value) {
             case Color.RED: {
                 return 'red';
