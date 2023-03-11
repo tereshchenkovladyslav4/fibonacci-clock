@@ -8,10 +8,11 @@ export class FibonacciClockService {
     private readonly SELECTED_TIME_KEY = 'selectedTime';
     fibonacciClockList: { [key: string]: number[][] } = {};
     selectedTime: string = '00:00';
+    private timeIndex: number = 0;
 
     constructor() {
-        const savedTime = localStorage.getItem(this.SELECTED_TIME_KEY) || '00:00';
-        this.selectedTime = savedTime;
+        this.timeIndex = Number(localStorage.getItem(this.SELECTED_TIME_KEY)) || 0;
+        this.saveTime();
 
         this.generateFibonacciClock();
     }
@@ -72,20 +73,20 @@ export class FibonacciClockService {
     }
 
     private saveTime() {
-        localStorage.setItem(this.SELECTED_TIME_KEY, this.selectedTime);
+        this.timeIndex = (this.timeIndex + 144) % 144;
+        const minute = this.timeIndex % 12;
+        const hour = Math.floor(this.timeIndex / 12);
+        this.selectedTime = `${hour.toString().padStart(2, '0')}:${(minute * 5).toString().padStart(2, '0')}`;
+        localStorage.setItem(this.SELECTED_TIME_KEY, `${this.timeIndex}`);
     }
 
     public next() {
-        const minute = +this.selectedTime.split(':')[1] + 5;
-        const hour = (+this.selectedTime.split(':')[0] + Math.floor(minute / 60)) % 12;
-        this.selectedTime = `${hour.toString().padStart(2, '0')}:${(minute % 60).toString().padStart(2, '0')}`;
+        this.timeIndex++;
         this.saveTime();
     }
 
     public back() {
-        const minute = +this.selectedTime.split(':')[1] - 5;
-        const hour = (+this.selectedTime.split(':')[0] + Math.floor(minute / 60) + 12) % 12;
-        this.selectedTime = `${hour.toString().padStart(2, '0')}:${((minute + 60) % 60).toString().padStart(2, '0')}`;
+        this.timeIndex--;
         this.saveTime();
     }
 }
