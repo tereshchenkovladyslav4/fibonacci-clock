@@ -30,4 +30,12 @@ describe('AppComponent', () => {
         const compiled = fixture.nativeElement as HTMLElement;
         expect(compiled.querySelector('h1')?.textContent).toContain(environment.title);
     });
+
+    it('should render buttons', () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        fixture.detectChanges();
+        const compiled = fixture.nativeElement as HTMLElement;
+        expect(compiled.querySelectorAll('button.card.card-small')?.[0]?.textContent).toContain('Back');
+        expect(compiled.querySelectorAll('button.card.card-small')?.[1]?.textContent).toContain('Next');
+    });
 });
