@@ -1,0 +1,26 @@
+<div style="display: flex; width: 160px; height: 100px">
+    <div style="flex: 3; display: flex; flex-direction: column">
+        <div style="flex: 2; display: flex">
+            <div
+                class="rect-border"
+                style="flex: 2"
+                [ngStyle]="{ 'background-color': fibonacciArray[2] | color }"
+            ></div>
+            <div style="flex: 1; display: flex; flex-direction: column">
+                <div
+                    class="rect-border"
+                    style="flex: 1"
+                    [ngStyle]="{ 'background-color': fibonacciArray[0] | color }"
+                ></div>
+                <div
+                    class="rect-border"
+                    style="flex: 1"
+                    [ngStyle]="{ 'background-color': fibonacciArray[1] | color }"
+                ></div>
+            </div>
+        </div>
+        <div class="rect-border" style="flex: 3" [ngStyle]="{ 'background-color': fibonacciArray[3] | color }"></div>
+    </div>
+
+    <div class="rect-border" style="flex: 5" [ngStyle]="{ 'background-color': fibonacciArray[4] | color }"></div>
+</div>
